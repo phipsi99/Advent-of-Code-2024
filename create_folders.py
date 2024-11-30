@@ -16,8 +16,11 @@ for i in range(1, 26):
     # Copy files from the template folder to the destination folder
     for source_file in template_folder.iterdir():
         if source_file.is_file():
+            main = source_file.read_text()
+            if source_file.name == "main.py":
+                main = main.replace("{XX}", folder_name)
             destination_file = destination_folder / source_file.name
-            destination_file.write_bytes(source_file.read_bytes())
+            destination_file.write_text(main)
             print(f'File {source_file.name} copied to folder {folder_name}')
 
 print('All files copied successfully.')

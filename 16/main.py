@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 def do_main():
-    with open(Path('input.txt')) as file:
+    with open(Path('16/input.txt')) as file:
         lines = [line.rstrip() for line in file]
 
     point_sum = 0
