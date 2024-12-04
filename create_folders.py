@@ -5,7 +5,7 @@ template_folder = Path(__file__).parent / 'templates'
 destination_path = Path(__file__).parent
 
 # Create the destination folders and copy files
-for i in range(1, 26):
+for i in range(4, 26):
     # Create the folder name with leading zero if necessary
     folder_name = f'{i:02d}'
 
