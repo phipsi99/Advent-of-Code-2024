@@ -17,7 +17,16 @@ def simulate_moves(lines):
                 x = char_index
                 y = line_index
     i = 0
+    visited = {}
     while 0 <= x < len(lines[0]) and 0 <= y < len(lines):
+        if (x,y) in visited:
+            if sel_dir in visited[(x,y)]:
+                is_inf = True
+                break
+            else:
+                visited[(x,y)].append(sel_dir)
+        else:
+            visited[(x,y)] = []
         i += 1
         if i >= arr_size:
             is_inf  = True
