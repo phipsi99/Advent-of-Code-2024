@@ -6,7 +6,6 @@ def r_o(operand, register_a, register_b, register_c):
     if operand == 4: return register_a
     if operand == 5: return register_b 
     if operand == 6: return register_c
-    raise ValueError(f"Invalid operand: {operand}")
 
 def run_program(instructions, register_a, register_b, register_c):
     output  = []
@@ -40,11 +39,7 @@ def run_program(instructions, register_a, register_b, register_c):
             register_b = register_a // (2 ** r_o(operand, register_a, register_b, register_c))
         
         elif opcode == 7:  
-            register_c = register_a // (2 ** r_o(operand, register_a, register_b, register_c))
-        
-        else:
-            raise ValueError(f"Unknown opcode: {opcode}")
-        
+            register_c = register_a // (2 ** r_o(operand, register_a, register_b, register_c))        
         ip += 2
     
     return(output)
@@ -75,9 +70,7 @@ def do_main(debug_mode=False):
             for i in range(0, len(l), 1):
                 instructions.append((int(l[i])))
 
-    print(str(run_program(instructions, register_a, register_b, register_c)))
-
-    for x in range(129):
+    for x in range(1000):
         print(str(run_program(instructions, x, 0, 0)))
     
     # By looking at the output, the number at place n change on every 8^n-1 steps of a.
@@ -96,7 +89,8 @@ def do_main(debug_mode=False):
                 a += 8 ** index
                 break
 
+    print(str(run_program(instructions, register_a, register_b, register_c)))
     print(a)
-    
+
 if __name__ == '__main__':
     do_main(False)
