@@ -14,7 +14,7 @@ def count_combinations(patterns, curr_design, memo):
     return total_count
 
 
-# this is ai gen after solution to understand different solutions
+# this is ai gen after solution to understand dp
 def count_combinations_dp(patterns, design):
     n = len(design)
     dp = [0] * (n + 1)
